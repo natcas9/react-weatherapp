@@ -8,7 +8,11 @@ export default function App() {
         <Weather />
         <footer>
           This project was coded by Natalia Casarin and is{" "}
-          <a href="https://github.com/natcas9/react-weatherapp" target="_blank">
+          <a
+            href="https://github.com/natcas9/react-weatherapp"
+            target="_blank"
+            rel="noreferrer"
+          >
             open-source code
           </a>
         </footer>
