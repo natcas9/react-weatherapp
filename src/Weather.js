@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+  const [cityInput, setCityInput] = useState("");
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -33,6 +35,7 @@ export default function Weather(props) {
   }
 
   function handleCityChange(event) {
+    setCityInput(event.target.value);
     setCity(event.target.value);
   }
 
@@ -48,6 +51,7 @@ export default function Weather(props) {
                 className="form-control"
                 autoFocus="on"
                 onChange={handleCityChange}
+                value={cityInput}
               />
             </div>
             <div className="col-3">
@@ -60,6 +64,7 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
+        <WeatherForecast />
       </div>
     );
   } else {
