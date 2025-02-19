@@ -14,7 +14,7 @@ export default function WeatherInfo(props) {
         <li>Mostly Cloudy</li>
         <li className="temperature">
           <div className="clearfix">
-            <WeatherIcon code={props.data.icon} />
+            <WeatherIcon code={props.data.icon} size={45} />
             <WeatherTemperature celsius={props.data.temperature} />
           </div>
         </li>
