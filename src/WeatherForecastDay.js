@@ -1,26 +1,33 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
+import "./WeatherForecast.css";
+import axios from "axios";
+
 export default function WeatherForecastDay(props) {
   function maxTemperature() {
-    let temperature = Math.round(props.data.temperature.maximum);
+    let temperature = Math.round(props.data.temp.max);
     return `${temperature}°`;
   }
+
   function minTemperature() {
-    let temperature = Math.round(props.data.temperature.minimum);
+    let temperature = Math.round(props.data.temp.min);
     return `${temperature}°`;
   }
+
   function day() {
-    let date = new Date(props.data.time * 1000);
+    let date = new Date(props.data.dt * 1000);
     let day = date.getDay();
+
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
     return days[day];
   }
 
   return (
     <div>
-      <div className="WeatherForecast-day ">{day()} </div>
-      <WeatherIcon code={props.data.condition.icon} size={20} isForecast />
-      <div className="WeatherForecast-temperature">
+      <div className="WeatherForecast-day">{day()}</div>
+      <WeatherIcon code={props.data.weather[0].icon} size={36} />
+      <div className="WeatherForecast-temperatures">
         <span className="WeatherForecast-temperature-max">
           {maxTemperature()}
         </span>
