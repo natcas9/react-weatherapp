@@ -7,7 +7,7 @@ export default function App() {
       <div className="container">
         <Weather defaultCity="London" />
         <footer>
-          This project was coded by Natalia Casarin and is{" "}
+          This project was coded by Natalia Casarin Sanchez and is{" "}
           <a
             href="https://github.com/natcas9/react-weatherapp"
             target="_blank"
