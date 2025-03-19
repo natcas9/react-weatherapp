@@ -23,9 +23,9 @@ export default function Weather(props) {
   }
 
   function search() {
-    const apiKey = "a5acb752426cd8188485c35694980e3a";
+    const apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
     //let city = "London";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.city}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
