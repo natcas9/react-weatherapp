@@ -8,6 +8,7 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
   const [cityInput, setCityInput] = useState("");
+  const [unit, setUnit] = useState("celsius");
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -38,6 +39,10 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
+  function toggleUnit(newUnit) {
+    setUnit(newUnit);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -62,8 +67,8 @@ export default function Weather(props) {
             </div>
           </div>
         </form>
-        <WeatherInfo data={weatherData} />
-        <WeatherForecast city={weatherData.city} />
+        <WeatherInfo data={weatherData} unit={unit} onUnitChange={toggleUnit} />
+        <WeatherForecast city={weatherData.city} unit={unit} />
       </div>
     );
   } else {

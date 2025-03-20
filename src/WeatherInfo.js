@@ -15,7 +15,11 @@ export default function WeatherInfo(props) {
         <li className="temperature">
           <div className="clearfix">
             <WeatherIcon code={props.data.icon} size={45} />
-            <WeatherTemperature celsius={props.data.temperature} />
+            <WeatherTemperature
+              celsius={props.data.temperature}
+              unit={props.unit}
+              onUnitChange={props.onUnitChange}
+            />
           </div>
         </li>
         <li className="text-capitalize">{props.description}</li>
