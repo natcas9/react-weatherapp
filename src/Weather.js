@@ -12,20 +12,19 @@ export default function Weather(props) {
     console.log(response.data);
     setWeatherData({
       ready: true,
-      date: new Date(response.data.dt * 1000),
-      temperature: response.data.main.temp,
+      date: new Date(response.data.time * 1000),
+      temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
-      humidity: response.data.main.humidity,
-      city: response.data.name,
-      description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
+      humidity: response.data.temperature.humidity,
+      city: response.data.city,
+      description: response.data.condition.description,
+      icon: response.data.condition.icon,
     });
   }
 
   function search() {
     const apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
-    //let city = "London";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.city}&key=${apiKey}`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
